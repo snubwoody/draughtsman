@@ -14,19 +14,22 @@ export function activate(context: ExtensionContext) {
 		const components = await window.showQuickPick(['Navbar','Button'],{canPickMany:true});
 		
 		if (components) {
-			gen_component('',components,context.extensionPath);
+			genComponent(components,context.extensionPath);
 		}
 	});
 
 	let pageCommand = commands.registerCommand('codeGen.genPage', async() => {
+		const pages = await window.showQuickPick(['Catalog'],{canPickMany:true});
 
-		
+		if(pages){
+			genPage(pages,context.extensionPath);
+		}
 	});
 
 	context.subscriptions.push(componentCommand,pageCommand);
 }
 
-function gen_component(framework:string | undefined,components:string[],ext_path:any){
+function genComponent(components:string[],ext_path:string){
 
 	let file_content:Buffer[] = [];
 
@@ -41,8 +44,23 @@ function gen_component(framework:string | undefined,components:string[],ext_path
 		fs.writeFileSync(`${src_dir}/components/${component_name}.tsx`,file);
 		window.showInformationMessage(`${components[i]} Generated`);
 	}
-
 	
+}
+
+function genPage(pages:string[],ext_path:string){
+	let file_content:Buffer[] = [];
+
+	pages?.forEach((page:any)=> {
+		file_content.push(fs.readFileSync(`${ext_path}/src/pages/${page}.tsx`));
+	});
+
+	for(let i = 0;i<pages.length;i++){
+		let pageName = pages[i];
+		let file = file_content[i];
+		fs.mkdirSync(`${app_dir}/${pageName.toLowerCase()}`);
+		fs.writeFileSync(`${app_dir}/${pageName.toLowerCase()}/page.tsx`,file);
+		window.showInformationMessage(`${pages[i]} Generated`);
+	}
 }
 
 function init(){
