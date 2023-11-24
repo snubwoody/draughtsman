@@ -20,6 +20,10 @@
 	  {
 		"command": "codeGen.genPage",
 		"title": "Generate Page"
+	  },
+	  {
+		"command": "codeGen.genRoute",
+		"title": "Generate Route"
 	  }
     ]
   },

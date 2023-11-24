@@ -1,7 +1,6 @@
 import * as vscode from 'vscode';
 import {window,commands,ExtensionContext} from 'vscode';
 import * as fs from 'fs';
-import path from 'path/win32';
 
 const root_dir = vscode.workspace.workspaceFolders[0].uri.fsPath;
 const src_dir = `${root_dir}/src`;
@@ -11,7 +10,7 @@ export function activate(context: ExtensionContext) {
 	
 	let componentCommand = commands.registerCommand('codeGen.genComponent', async() => {
 
-		const components = await window.showQuickPick(['Navbar','Button'],{canPickMany:true});
+		const components = await window.showQuickPick(['Navbar','Button','Input'],{canPickMany:true});
 		
 		if (components) {
 			genComponent(components,context.extensionPath);
@@ -26,11 +25,19 @@ export function activate(context: ExtensionContext) {
 		}
 	});
 
+	let routeCommand = commands.registerCommand('codeGen.genRoute', async() => {
+		
+		const route_name = await window.showInputBox({placeHolder:'Type the name of the route'});
+
+		if(route_name){
+			genRoute(route_name,context.extensionPath);
+		}
+	});
+
 	context.subscriptions.push(componentCommand,pageCommand);
 }
 
 function genComponent(components:string[],ext_path:string){
-
 	let file_content:Buffer[] = [];
 
 	components?.forEach((component:any)=> {
@@ -44,7 +51,6 @@ function genComponent(components:string[],ext_path:string){
 		fs.writeFileSync(`${src_dir}/components/${component_name}.tsx`,file);
 		window.showInformationMessage(`${components[i]} Generated`);
 	}
-	
 }
 
 function genPage(pages:string[],ext_path:string){
@@ -61,6 +67,15 @@ function genPage(pages:string[],ext_path:string){
 		fs.writeFileSync(`${app_dir}/${pageName.toLowerCase()}/page.tsx`,file);
 		window.showInformationMessage(`${pages[i]} Generated`);
 	}
+}
+
+function genRoute(routeName:string,ext_path:string){
+	let file_content:Buffer = fs.readFileSync(`${ext_path}/src/pages/Default.tsx`);
+
+	fs.mkdirSync(`${app_dir}/${routeName.toLowerCase()}`);
+	fs.writeFileSync(`${app_dir}/${routeName.toLowerCase()}/page.tsx`,file_content);
+	window.showInformationMessage(`New route ${routeName} Generated`);
+
 }
 
 function init(){
