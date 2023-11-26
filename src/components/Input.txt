@@ -1,6 +1,7 @@
 //TODO look for the type for input elemets to enable intellisense
 //TODO find a way to make plaaceholder null
 'use client';
+
 export default function Input({label,onChange,placeholder=''}:InputType){
 	return(
 		<div className="flex flex-col gap-3">

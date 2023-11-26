@@ -4,15 +4,19 @@
   "description": "",
   "version": "0.0.1",
   "publisher": "Charlemagne-co",
-  "license":"MIT",
+  "license": "MIT",
   "engines": {
     "vscode": "^1.84.0"
   },
   "categories": [
     "Other",
-	"Snippets"
+    "Snippets"
   ],
-  "keywords": ["Code gen","Generate","Boilerplate"],
+  "keywords": [
+    "Code gen",
+    "Generate",
+    "Boilerplate"
+  ],
   "preview": true,
   "activationEvents": [],
   "main": "./out/extension.js",
@@ -23,10 +27,6 @@
         "title": "Draughtsman: Generate Component"
       },
       {
-        "command": "dsm.genPage",
-        "title": "Draughtsman: Generate Page"
-      },
-      {
         "command": "dsm.genRoute",
         "title": "Draughtsman: Generate Route"
       }
@@ -34,6 +34,7 @@
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
+	"precompile":"copyfiles -f src/pages/**/*.txt out/pages && copyfiles -f src/components/**/*.txt out/components ",
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
     "pretest": "npm run compile && npm run lint",
