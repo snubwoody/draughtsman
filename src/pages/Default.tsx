@@ -4,7 +4,5 @@ export default function Page(){
 		<main className="w-full h-screen">
 
 		</main>
-	);
+	)
 }
-
-//TODO mode react to dev dependencieds or peer dependencies
