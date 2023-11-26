@@ -3,7 +3,7 @@
   "displayName": "Draughtsman",
   "description": "",
   "version": "0.0.1",
-  "publisher": "charlemagne",
+  "publisher": "Charlemagne-co",
   "license":"MIT",
   "engines": {
     "vscode": "^1.84.0"
