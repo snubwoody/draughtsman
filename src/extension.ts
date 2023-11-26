@@ -1,9 +1,10 @@
 import {window,commands,ExtensionContext,workspace} from 'vscode';
 import * as fs from 'fs';
+import * as path from 'path';
 
 const root_dir = workspace.workspaceFolders ? workspace.workspaceFolders[0].uri.fsPath : '';
-const src_dir = `${root_dir}/src`;
-const app_dir = `${src_dir}/app`;
+const src_dir = path.join(root_dir,'src');
+const app_dir = path.join(root_dir,'app');
 //TODO what happens if a route already exists
 //TODO set up a backup on gitlab
 
@@ -45,14 +46,15 @@ function genComponent(components:string[],ext_path:string){
 	let file_content:Buffer[] = [];
 
 	components?.forEach((component:any)=> {
-		file_content.push(fs.readFileSync(`${ext_path}/src/components/${component}.txt`));
+		//file_content.push(fs.readFileSync(`${ext_path}/out/components/${component}.txt`));
+		file_content.push(fs.readFileSync(path.join(ext_path,'out','components',`${component}.txt`)));
 	});
 
 	for(let i = 0;i<components.length;i++){
 		let component_name = components[i];
 		let file = file_content[i];
 		
-		fs.writeFileSync(`${src_dir}/components/${component_name}.txt`,file);
+		fs.writeFileSync(`${src_dir}/components/${component_name}.tsx`,file);
 		window.showInformationMessage(`${components[i]} Generated`);
 	}
 }
@@ -62,24 +64,24 @@ function genPage(pages:string[],ext_path:string){
 	let file_content:Buffer[] = [];
 
 	pages?.forEach((page:any)=> {
-		file_content.push(fs.readFileSync(`${ext_path}/src/pages/${page}.txt`));
+		file_content.push(fs.readFileSync(`${ext_path}/out/pages/${page}.txt`));
 	});
 
 	for(let i = 0;i<pages.length;i++){
 		let pageName = pages[i];
 		let file = file_content[i];
 		fs.mkdirSync(`${app_dir}/${pageName.toLowerCase()}`);
-		fs.writeFileSync(`${app_dir}/${pageName.toLowerCase()}/page.txt`,file);
+		fs.writeFileSync(`${app_dir}/${pageName.toLowerCase()}/page.tsx`,file);
 		window.showInformationMessage(`${pages[i]} Generated`);
 	}
 }
 
 function genRoute(routeName:string,ext_path:string){
 	init();
-	let file_content:Buffer = fs.readFileSync(`${ext_path}/src/pages/Default.txt`);
+	let file_content:Buffer = fs.readFileSync(`${ext_path}/out/pages/Default.txt`);
 
 	fs.mkdirSync(`${app_dir}/${routeName.toLowerCase()}`);
-	fs.writeFileSync(`${app_dir}/${routeName.toLowerCase()}/page.txt`,file_content);
+	fs.writeFileSync(`${app_dir}/${routeName.toLowerCase()}/page.tsx`,file_content);
 	window.showInformationMessage(`New route ${routeName} Generated`);
 
 }

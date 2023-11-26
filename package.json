@@ -20,15 +20,15 @@
     "commands": [
       {
         "command": "dsm.genComponent",
-        "title": "Generate Component"
+        "title": "Draughtsman: Generate Component"
       },
       {
         "command": "dsm.genPage",
-        "title": "Generate Page"
+        "title": "Draughtsman: Generate Page"
       },
       {
         "command": "dsm.genRoute",
-        "title": "Generate Route"
+        "title": "Draughtsman: Generate Route"
       }
     ]
   },
