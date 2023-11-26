@@ -4,14 +4,14 @@ import * as fs from 'fs';
 const root_dir = workspace.workspaceFolders[0].uri.fsPath;
 const src_dir = `${root_dir}/src`;
 const app_dir = `${src_dir}/app`;
-
+//TODO what happens if a route already exists
 export function activate(context: ExtensionContext) {
 
 	init();
 	
 	let componentCommand = commands.registerCommand('codeGen.genComponent', async() => {
 
-		const components = await window.showQuickPick(['Navbar','Button','Input'],{canPickMany:true});
+		const components = await window.showQuickPick(['Button','Input'],{canPickMany:true});
 		
 		if (components) {
 			genComponent(components,context.extensionPath);
