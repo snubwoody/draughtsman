@@ -2,7 +2,7 @@
   "name": "draughtsman",
   "displayName": "Draughtsman",
   "description": "",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "publisher": "Charlemagne-co",
   "license": "MIT",
   "engines": {
@@ -34,7 +34,7 @@
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
-	"precompile":"copyfiles -f src/pages/**/*.txt out/pages && copyfiles -f src/components/**/*.txt out/components ",
+    "precompile": "copyfiles -f src/pages/**/*.txt out/pages && copyfiles -f src/components/**/*.txt out/components ",
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
     "pretest": "npm run compile && npm run lint",
