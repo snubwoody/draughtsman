@@ -5,11 +5,13 @@ const root_dir = workspace.workspaceFolders[0].uri.fsPath;
 const src_dir = `${root_dir}/src`;
 const app_dir = `${src_dir}/app`;
 //TODO what happens if a route already exists
+//TODO set up a backup on gitlab
+
 export function activate(context: ExtensionContext) {
 
 	init();
 	
-	let componentCommand = commands.registerCommand('codeGen.genComponent', async() => {
+	let componentCommand = commands.registerCommand('dsm.genComponent', async() => {
 
 		const components = await window.showQuickPick(['Button','Input'],{canPickMany:true});
 		
@@ -18,7 +20,7 @@ export function activate(context: ExtensionContext) {
 		}
 	});
 
-	let pageCommand = commands.registerCommand('codeGen.genPage', async() => {
+	let pageCommand = commands.registerCommand('dsm.genPage', async() => {
 		const pages = await window.showQuickPick(['Catalog'],{canPickMany:true});
 
 		if(pages){
@@ -26,7 +28,7 @@ export function activate(context: ExtensionContext) {
 		}
 	});
 
-	let routeCommand = commands.registerCommand('codeGen.genRoute', async() => {
+	let routeCommand = commands.registerCommand('dsm.genRoute', async() => {
 		
 		const route_name = await window.showInputBox({placeHolder:'Type the name of the route'});
 
