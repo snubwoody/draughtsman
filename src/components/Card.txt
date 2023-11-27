@@ -1,0 +1,32 @@
+
+export default function Card({children}:any){
+	return(
+		<div className="sm:w-96 w-64 h-fit flex flex-col gap-3 rounded-md shadow-md py-7 px-5 bg-white">
+			{children}
+		</div>
+	)
+}
+
+export function CardHeader({children}:any){
+	return(
+		<div className="text-xl font-semibold">
+			{children}
+		</div>
+	)
+}
+
+export function CardBody({children}:any){
+	return(
+		<div>
+			{children}
+		</div>
+	)
+}
+
+export function CardFooter({children}:any){
+	return(
+		<div className="flex items-center justify-end">
+			{children}
+		</div>
+	)
+}

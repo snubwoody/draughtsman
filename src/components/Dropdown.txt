@@ -1,0 +1,29 @@
+'use client'
+import {useState,ReactNode,useRef,useEffect} from 'react'
+
+export default function Dropdown({choices,placeholder,onChange}:DropdownType){
+	const [dropdownActive,setDropdownActive] = useState(false);
+	const [current,setCurrent] = useState(placeholder)
+	
+	return(
+		<div className="w-56 relative select-none">
+			<div onClick={()=>{setDropdownActive(!dropdownActive)}} className="w-full flex items-center p-2 bg-white rounded-md shadow-md">
+				<p>{current}</p>
+			</div>
+			{
+				dropdownActive ? 
+				<div  className="w-full flex flex-col gap-2 p-3 bg-white rounded-md shadow-md absolute top-14">
+					{choices.map((choice:string)=>(
+						<p onClick={()=>{setCurrent(choice);onChange(choice)}}>{choice}</p>
+					))}
+				</div> : null
+			}
+		</div>
+	)
+}
+
+interface DropdownType{
+	choices:string[],
+	placeholder:string,
+	onChange:(choice:string) => void
+}

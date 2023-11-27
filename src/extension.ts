@@ -14,7 +14,7 @@ export function activate(context: ExtensionContext) {
 	
 	let componentCommand = commands.registerCommand('dsm.genComponent', async() => {
 
-		const components = await window.showQuickPick(['Button','Input'],{canPickMany:true});
+		const components = await window.showQuickPick(['Button','Input','Card','Dropdown'],{canPickMany:true});
 		
 		if (components) {
 			try{
