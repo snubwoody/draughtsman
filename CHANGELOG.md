@@ -6,3 +6,6 @@ First day patch fixing some major errors that prevented the extension from runni
 
 ## v0.0.3-alpha
 Small patches
+
+## v0.1.0-alpha
+Added more components (Card and Dropdown)

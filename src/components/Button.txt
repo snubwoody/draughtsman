@@ -1,6 +1,6 @@
 'use client';
 
-export default function Button({text,fn,size}:ButtonType){
+export default function Button({children,fn,size}:ButtonType){
 	const buttonSizes = {
 		'large':'w-48 h-10 rounded-lg',
 		'base':'w-36 h-10 rounded-md',
@@ -13,13 +13,13 @@ export default function Button({text,fn,size}:ButtonType){
 		onClick={()=>{fn()}} 
 		className={`${buttonSizes[size]} rounded-lg flex items-center justify-center bg-blue-700 text-white`}
 		>
-			{text}
+			{children}
 		</button>
 	);
 }
 
 interface ButtonType{
-	text:string,
+	children:any
 	fn: () => void | VoidFunction,
 	size: 'large' | 'base' | 'small' | 'fill'
 }
