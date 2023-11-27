@@ -17,5 +17,9 @@ Only Next JS is supported currently, support for more frameworks will be coming 
 ### Examples
 You can generate components using the 'Generate component' command. This will place the generated component in the src/components directory and will create it if it doesn't exist.
 
+![component_gen](https://github.com/snubwoody/draughtsman/assets/67170475/32f862a6-1ba4-450b-b9f9-618d8858c4ef)
+
 ****
 You can generate routes using the 'Generate route' command. This will create a new app/[route-name] directory with a page.tsx file.
+
+![route_gen](https://github.com/snubwoody/draughtsman/assets/67170475/882883d4-ca64-47b0-9919-610de6b0dd20)
