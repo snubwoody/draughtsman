@@ -9,3 +9,8 @@ Small patches
 
 ## v0.1.0-alpha
 Added more components (Card and Dropdown)
+
+## v0.2.0-alpha
+Changed style on input component
+Added mask option to input component
+Added signin page

@@ -1,10 +1,25 @@
 
 export default function Page(){
+	const items = [0,1,2,3,4,5,6,7,8,9,1]
 	return(
-		<main className="w-full h-screen">
-
+		<main className="w-full h-screen flex flex-wrap p-10 gap-10">
+			{items.map((item)=>(
+				<Item/>
+			))}
 		</main>
-	);
+	)
 }
 
-//TODO mode react to dev dependencieds or peer dependencies
+function Item(){
+	return(
+		<div className="flex flex-col gap-7 grow basis-[40%] md:basis-[22%] mb-10">
+			<div className=" aspect-[4/3] bg-gray-200 rounded-md">
+				
+			</div>
+			<div className="flex w-full justify-between items-center">
+				<p>Item name</p>
+				<p>$20.00</p>
+			</div>
+		</div>
+	)
+}
