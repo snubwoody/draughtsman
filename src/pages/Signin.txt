@@ -1,0 +1,51 @@
+'use client'
+import Input from "@/components/Input";
+import Button from "@/components/Button";
+
+// This page has not been optimised for small screens yet. 
+
+export default function Page(){
+	return(
+		
+		<main className="w-screen h-screen flex flex-col items-center justify-center gap-5 bg-[#F5F5F5]">
+			<p className="text-5xl">Example.com</p>
+			<p className="text-2xl">Welcome back!</p>
+			<div className="w-fit flex flex-col gap-7 items-center justify-center bg-white px-20 py-10 rounded-md border border-[#AEAEAE]">
+				<p className="text-2xl font-medium">Sign in to your account</p>
+				<div className="flex flex-col gap-5">
+					<Input label="Email" placeholder="example@gmail.com" onChange={()=>{}}/>
+					<Input label="Password" onChange={()=>{}} mask/>
+					<div className="w-full flex flex-col gap-5 items-end justify-center">
+						<a href="#">Forgot password?</a>
+					</div>
+				</div>
+				<div className="w-full h-10">
+					<Button size="fill" fn={()=>{}}>Sign in</Button>
+				</div>
+				<svg width="267" height="1" viewBox="0 0 267 1" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<line y1="0.5" x2="267" y2="0.5" stroke="#4F4F4F"/>
+				</svg>
+				<div className="w-full flex flex-col gap-5">
+					<div className="w-full h-10">
+						<Button size="fill" color="white" fn={()=>{}}>
+							<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 32 32">
+								<title>google</title>
+								<path d="M16.319 13.713v5.487h9.075c-0.369 2.356-2.744 6.9-9.075 6.9-5.463 0-9.919-4.525-9.919-10.1s4.456-10.1 9.919-10.1c3.106 0 5.188 1.325 6.375 2.469l4.344-4.181c-2.788-2.612-6.4-4.188-10.719-4.188-8.844 0-16 7.156-16 16s7.156 16 16 16c9.231 0 15.363-6.494 15.363-15.631 0-1.050-0.113-1.85-0.25-2.65l-15.113-0.006z"></path>
+							</svg>
+							<p>Sign in with Google</p>
+						</Button>
+					</div>
+					<div className="w-full h-10">
+						<Button size="fill" color="white" fn={()=>{}}>
+							<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 32 32">
+								<title>github</title>
+								<path d="M16 0.395c-8.836 0-16 7.163-16 16 0 7.069 4.585 13.067 10.942 15.182 0.8 0.148 1.094-0.347 1.094-0.77 0-0.381-0.015-1.642-0.022-2.979-4.452 0.968-5.391-1.888-5.391-1.888-0.728-1.849-1.776-2.341-1.776-2.341-1.452-0.993 0.11-0.973 0.11-0.973 1.606 0.113 2.452 1.649 2.452 1.649 1.427 2.446 3.743 1.739 4.656 1.33 0.143-1.034 0.558-1.74 1.016-2.14-3.554-0.404-7.29-1.777-7.29-7.907 0-1.747 0.625-3.174 1.649-4.295-0.166-0.403-0.714-2.030 0.155-4.234 0 0 1.344-0.43 4.401 1.64 1.276-0.355 2.645-0.532 4.005-0.539 1.359 0.006 2.729 0.184 4.008 0.539 3.054-2.070 4.395-1.64 4.395-1.64 0.871 2.204 0.323 3.831 0.157 4.234 1.026 1.12 1.647 2.548 1.647 4.295 0 6.145-3.743 7.498-7.306 7.895 0.574 0.497 1.085 1.47 1.085 2.963 0 2.141-0.019 3.864-0.019 4.391 0 0.426 0.288 0.925 1.099 0.768 6.354-2.118 10.933-8.113 10.933-15.18 0-8.837-7.164-16-16-16z"></path>
+							</svg>
+							<p>Sign in with Github</p>
+						</Button>
+					</div>	
+				</div>
+			</div>
+		</main>
+	)
+}

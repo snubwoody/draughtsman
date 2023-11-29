@@ -29,7 +29,11 @@
       {
         "command": "dsm.genRoute",
         "title": "Draughtsman: Generate Route"
-      }
+      },
+	  {
+		"command":"dsm.genPage",
+		"title": "Draughtsman: Generate Page"
+	  }
     ]
   },
   "scripts": {
