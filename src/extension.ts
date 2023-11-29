@@ -48,7 +48,7 @@ export function activate(context: ExtensionContext) {
 		}
 	});
 
-	context.subscriptions.push(componentCommand,routeCommand);
+	context.subscriptions.push(componentCommand,routeCommand,pageCommand);
 }
 
 function genComponent(components:string[],ext_path:string){
