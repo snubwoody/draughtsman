@@ -21,3 +21,6 @@ Changed style on card component
 
 ## v0.2.1-alpha
 Fixed a bug that occurs because json wasn't copied to output
+
+## v0.2.2-alpha
+Fixed a small error in the generate page function
