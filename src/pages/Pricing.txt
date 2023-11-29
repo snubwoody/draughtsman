@@ -1,0 +1,82 @@
+'use client'
+import Card,{CardHeader,CardBody,CardFooter} from "@/components/Card"
+import Button from "@/components/Button"
+
+export default function Page(){
+	return(
+		<main className="w-full h-screen flex flex-col lg:flex-row items-center justify-center gap-10">
+			<Card>
+				<CardHeader>
+					<p>Standard</p>
+					<p className="text-3xl font-normal">Free</p>
+				</CardHeader>
+				<CardBody>
+					<p>Benefits</p>
+					<ul className="flex flex-col gap-2">
+						<li>- 5gb storage</li>
+						<li>- Weekly backups</li>
+						<li>- Unlimited video sharing</li>
+						<li>- Unlimited video sharing</li>
+						<li>- Unlimited video sharing</li>
+						<li>- Unlimited video sharing</li>
+						<li>- Unlimited video sharing</li>
+						<li>- Unlimited video sharing</li>
+					</ul>
+				</CardBody>
+				<CardFooter>
+					<div className="w-full h-10">
+						<Button size="fill" fn={()=>{}}>Get Standard</Button>
+					</div>
+				</CardFooter>
+			</Card>
+			<Card color="green">
+				<CardHeader>
+					<p>Plus</p>
+					<p className="text-3xl font-normal">$20/month</p>
+				</CardHeader>
+				<CardBody>
+					<p>Benefits</p>
+					<ul className="flex flex-col gap-2">
+						<li>- 5gb storage</li>
+						<li>- Weekly backups</li>
+						<li>- Unlimited video sharing</li>
+						<li>- Unlimited video sharing</li>
+						<li>- Unlimited video sharing</li>
+						<li>- Unlimited video sharing</li>
+						<li>- Unlimited video sharing</li>
+						<li>- Unlimited video sharing</li>
+					</ul>
+				</CardBody>
+				<CardFooter>
+					<div className="w-full h-10">
+						<Button size="fill" fn={()=>{}}>Get Plus</Button>
+					</div>
+				</CardFooter>
+			</Card>
+			<Card>
+				<CardHeader>
+					<p>Premium</p>
+					<p className="text-3xl font-normal">$60/month</p>
+				</CardHeader>
+				<CardBody>
+					<p className="">Benefits</p>
+					<ul className="flex flex-col gap-2">
+						<li>- 5gb storage</li>
+						<li>- Weekly backups</li>
+						<li>- Unlimited video sharing</li>
+						<li>- Unlimited video sharing</li>
+						<li>- Unlimited video sharing</li>
+						<li>- Unlimited video sharing</li>
+						<li>- Unlimited video sharing</li>
+						<li>- Unlimited video sharing</li>
+					</ul>
+				</CardBody>
+				<CardFooter>
+					<div className="w-full h-10">
+						<Button size="fill" fn={()=>{}}>Get Premium</Button>
+					</div>
+				</CardFooter>
+			</Card>
+		</main>
+	)
+}

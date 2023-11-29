@@ -41,7 +41,7 @@ export function activate(context: ExtensionContext) {
 	});
 
 	let pageCommand = commands.registerCommand('dsm.genPage',async () => {
-		const pages = await window.showQuickPick(['Signin','Catalog'],{canPickMany:true});
+		const pages = await window.showQuickPick(['Signin','Catalog','Pricing'],{canPickMany:true});
 
 		if(pages){
 			genPage(pages,context.extensionPath);
