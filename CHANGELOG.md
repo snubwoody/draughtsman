@@ -24,3 +24,6 @@ Fixed a bug that occurs because json wasn't copied to output
 
 ## v0.2.2-alpha
 Fixed a small error in the generate page function
+
+## v0.2.3-alpha
+Same bug as before but wasn't fixed

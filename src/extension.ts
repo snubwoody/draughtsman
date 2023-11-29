@@ -71,7 +71,7 @@ function genComponent(components:string[],ext_path:string){
 function genPage(pages:string[],ext_path:string){
 	init();
 	let file_content:Buffer[] = [];
-	const jsonFile = fs.readFileSync(path.join(ext_path,'pages','requirements.json'));
+	const jsonFile = fs.readFileSync(path.join(ext_path,'out','pages','requirements.json'));
 	const requirements = JSON.parse(jsonFile.toString());
 
 	pages?.forEach((page:any)=> {
