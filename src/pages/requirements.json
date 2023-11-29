@@ -1,4 +1,6 @@
 {
 	"Catalog":0,
-	"Signin":["Input","Button"]
+	"Signin":["Input","Button"],
+	"Default":0,
+	"Pricing":["Card","Button"]
 }

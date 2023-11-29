@@ -1,7 +1,13 @@
+import { ReactNode } from "react"
 
-export default function Card({children}:any){
+export default function Card({children,color='white'}:CardType){
+	
+	const cardColors = {
+		white: 'bg-white',
+		green: 'bg-teal-700 text-white'
+	}
 	return(
-		<div className="sm:w-96 w-64 h-fit flex flex-col gap-3 rounded-md shadow-md py-7 px-5 bg-white">
+		<div className={`sm:w-96 w-64 h-fit flex flex-col gap-5  rounded-md shadow-md py-7 px-5 ${cardColors[color]} `}>
 			{children}
 		</div>
 	)
@@ -29,4 +35,9 @@ export function CardFooter({children}:any){
 			{children}
 		</div>
 	)
+}
+
+interface CardType {
+	children: ReactNode
+	color? : 'white' | 'green'
 }

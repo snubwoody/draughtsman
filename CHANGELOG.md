@@ -16,3 +16,5 @@ Added mask option to input component
 Added signin page
 Added component requirements for pages
 Changed style on signin page
+Added pricing page
+Changed style on card component
