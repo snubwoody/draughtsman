@@ -40,6 +40,14 @@ export function activate(context: ExtensionContext) {
 		}
 	});
 
+	let pageCommand = commands.registerCommand('dsm.genPage',async () => {
+		const pages = await window.showQuickPick(['Signin','Catalog'],{canPickMany:true});
+
+		if(pages){
+			genPage(pages,context.extensionPath);
+		}
+	});
+
 	context.subscriptions.push(componentCommand,routeCommand);
 }
 
@@ -48,7 +56,6 @@ function genComponent(components:string[],ext_path:string){
 	let file_content:Buffer[] = [];
 
 	components?.forEach((component:any)=> {
-		//file_content.push(fs.readFileSync(`${ext_path}/out/components/${component}.txt`));
 		file_content.push(fs.readFileSync(path.join(ext_path,'out','components',`${component}.txt`)));
 	});
 
@@ -64,6 +71,8 @@ function genComponent(components:string[],ext_path:string){
 function genPage(pages:string[],ext_path:string){
 	init();
 	let file_content:Buffer[] = [];
+	const jsonFile = fs.readFileSync(path.join(ext_path,'src','pages','requirements.json'));
+	const requirements = JSON.parse(jsonFile.toString());
 
 	pages?.forEach((page:any)=> {
 		file_content.push(fs.readFileSync(`${ext_path}/out/pages/${page}.txt`));
@@ -72,6 +81,13 @@ function genPage(pages:string[],ext_path:string){
 	for(let i = 0;i<pages.length;i++){
 		let pageName = pages[i];
 		let file = file_content[i];
+
+		const pageRequirements = requirements[pageName];
+
+		if (pageRequirements !== 0){
+			genComponent(pageRequirements,ext_path);
+		}
+		
 		fs.mkdirSync(`${app_dir}/${pageName.toLowerCase()}`);
 		fs.writeFileSync(`${app_dir}/${pageName.toLowerCase()}/page.tsx`,file);
 		window.showInformationMessage(`${pages[i]} Generated`);
@@ -95,5 +111,3 @@ function init(){
 	}
 }
 
-// This method is called when your extension is deactivated
-export function deactivate() {}
