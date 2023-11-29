@@ -38,7 +38,7 @@
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
-    "precompile": "copyfiles -f src/pages/**/*.txt out/pages && copyfiles -f src/components/**/*.txt out/components ",
+    "precompile": "copyfiles -f src/pages/**/*.txt out/pages && copyfiles -f src/components/**/*.txt out/components && copyfiles -f src/pages/**/*.json out/pages",
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
     "pretest": "npm run compile && npm run lint",

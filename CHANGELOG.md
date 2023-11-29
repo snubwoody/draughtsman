@@ -18,3 +18,6 @@ Added component requirements for pages
 Changed style on signin page
 Added pricing page
 Changed style on card component
+
+## v0.2.1-alpha
+Fixed a bug that occurs because json wasn't copied to output
