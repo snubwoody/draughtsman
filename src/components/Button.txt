@@ -1,6 +1,6 @@
 'use client';
 
-export default function Button({children,fn,size}:ButtonType){
+export default function Button({children,fn,size="base",color='blue'}:ButtonType){
 	const buttonSizes = {
 		'large':'w-48 h-10 rounded-lg',
 		'base':'w-36 h-10 rounded-md',
@@ -8,10 +8,15 @@ export default function Button({children,fn,size}:ButtonType){
 		'fill':'w-full h-full rounded-[inherit]'
 	};
 
+	const buttonColors = {
+		'blue': 'bg-blue-700 text-white',
+		'white': 'bg-white border border-black'
+	}
+
 	return (
 		<button 
 		onClick={()=>{fn()}} 
-		className={`${buttonSizes[size]} rounded-lg flex items-center justify-center bg-blue-700 text-white`}
+		className={`${buttonSizes[size]} rounded-lg flex gap-2 items-center justify-center ${buttonColors[color]}`}
 		>
 			{children}
 		</button>
@@ -21,5 +26,6 @@ export default function Button({children,fn,size}:ButtonType){
 interface ButtonType{
 	children:any
 	fn: () => void | VoidFunction,
-	size: 'large' | 'base' | 'small' | 'fill'
+	size?: 'large' | 'base' | 'small' | 'fill'
+	color?: 'blue' | 'white'
 }

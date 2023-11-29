@@ -15,3 +15,4 @@ Changed style on input component
 Added mask option to input component
 Added signin page
 Added component requirements for pages
+Changed style on signin page

@@ -3,8 +3,8 @@
 export default function Input({label,onChange,placeholder,mask=false}:InputType){
 	const type = mask ? 'password' : 'text'
 	return(
-		<div className="flex flex-col gap-3">
-			<p className=" font-medium">{label}</p>
+		<div className="flex flex-col gap-1">
+			<p className="">{label}</p>
 			<input
 				className="w-64 h-10  border-md outline-1 outline-blue-400 border border-gray-200 rounded-md flex items-center px-3 text-gray-600"
 				type={type}
